@@ -8,5 +8,5 @@ export default function createIteratorObject(report) {
   }
   /* eslint-enable*/
 
-  return workers;
+  return empleados;
 }
