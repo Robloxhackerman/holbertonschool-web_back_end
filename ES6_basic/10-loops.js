@@ -1,8 +1,8 @@
 export default function appendToEachArrayValue(array, appendString) {
+  const pepe = []
   for (const idx of array) {
-    const value = array[idx];
-    array[idx] = appendString + value;
+    pepe.push(`${appendString}${string}`);
   }
 
-  return array;
+  return pepe;
 }
