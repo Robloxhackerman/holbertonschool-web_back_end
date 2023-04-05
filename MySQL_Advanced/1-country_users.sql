@@ -7,5 +7,3 @@ CREATE TABLE IF NOT EXISTS users(
     country ENUM('US', 'CO', 'TN') NOT NULL,
     PRIMARY KEY (id)
 );
-
-INSERT INTO users (email, name, country) VALUES ('bob@dylan.com', 'Bob', 'US');
