@@ -22,11 +22,6 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     :param max_delay:
     :return:
     """
-    delays: List[float] = []
-    allDelays: List[float] = []
-    for PEPE in range(n):
-        delays.append(wait_random(max_delay))
-    for delay in asyncio.as_completed(delays):
-        earliest_result = await delay
-        allDelays.append(delays)
-    return allDelays
+    tasks: List[asyncio.Task] = [asyncio.create_task(
+        wait_random(max_delay)) for _ in range(n)]
+    return [await task for task in asyncio.as_completed(tasks)]
