@@ -4,9 +4,10 @@ Write a coroutine called async_generator that takes no arguments.
 """
 import asyncio
 import random
+from typing import Generator
 
 
-async def async_generator():
+async def async_generator() -> Generator[float, None, None]:
     """
 
     :return:
