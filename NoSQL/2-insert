@@ -1,5 +1,5 @@
 //Write a script that inserts a document in the collection school
-db.school.inserts(
+db.school.insert(
     {
         "name" : "Holberton School"
     }
