@@ -11,4 +11,4 @@ def schools_by_topic(mongo_collection, topic):
     :param topic:
     :return:
     """
-    return mongo_collection.find({"topic":topic})
+    return mongo_collection.find({ "topic":topic })
