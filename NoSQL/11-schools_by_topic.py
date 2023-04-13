@@ -11,4 +11,6 @@ def schools_by_topic(mongo_collection, topic):
     :param topic:
     :return:
     """
-    return [pepe for pepe in mongo_collection.find({"topic": topic})]
+    doc = mongo_collection.find({"topic": topic})
+    list = [i for i in doc]
+    return list
