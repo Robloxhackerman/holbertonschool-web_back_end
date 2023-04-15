@@ -10,20 +10,43 @@ import redis
 
 
 def count_calls(method: Callable) -> Callable:
+    """
+
+    :param method:
+    :return:
+    """
     key = method.__qualname__
 
     @wraps(method)
     def call_counter(self, *args) -> bytes:
+        """
+
+        :param self:
+        :param args:
+        :return:
+        """
         self._redis.incr(key)
         return method(self, *args)
 
     return call_counter
 
+
 def call_history(method: Callable) -> Callable:
+    """
+
+    :param method:
+    :return:
+    """
     key = method.__qualname__
 
     @wraps(method)
     def history_dec(self, *args) -> bytes:
+        """
+
+        :param self:
+        :param args:
+        :return:
+        """
         self._redis.rpush(f'{key}:inputs', str(args))
         data = method(self, *args)
         self._redis.rpush(f'{key}:outputs', data)
@@ -31,7 +54,13 @@ def call_history(method: Callable) -> Callable:
 
     return history_dec
 
+
 def replay(obj: Union[Callable, str]) -> None:
+    """
+
+    :param obj:
+    :return:
+    """
     cache = obj.__self__
 
     call_count = str(cache.get(cache.store.__qualname__), 'UTF-8')
@@ -68,14 +97,26 @@ class Cache:
         key = str(uuid.uuid4())
         self._redis.set(key, data)
         return key
-    def get(self, key: str, fn: Optional[Callable] = None) -> Union[str, bytes, int, float]:
+
+    def get(self, key: str, fn:
+    Optional[Callable] = None) -> Union[str, bytes, int, float]:
         data = self._redis.get(key)
         if fn:
             return fn(data)
         return data
 
     def get_str(self, key: str) -> str:
-        return str(self._redis.get(key),'utf-8')
+        """
+
+        :param key:
+        :return:
+        """
+        return str(self._redis.get(key), 'utf-8')
 
     def get_int(self, key: str) -> int:
+        """
+
+        :param key:
+        :return:
+        """
         return int(self._redis.get(key))
