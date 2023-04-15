@@ -20,6 +20,19 @@ def count_calls(method: Callable) -> Callable:
 
     return call_counter
 
+def call_history(method: Callable) -> Callable:
+    key = method.__qualname__
+
+    @wraps(method)
+    def history_dec(self, *args) -> bytes:
+        self._redis.rpush(f'{key}:inputs', str(args))
+        data = method(self, *args)
+        self._redis.rpush(f'{key}:outputs', data)
+        return data
+
+    return history_dec
+
+
 class Cache:
     """
 
@@ -33,6 +46,7 @@ class Cache:
         self._redis.flushdb()
 
     @count_calls
+    @call_history
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """
 
