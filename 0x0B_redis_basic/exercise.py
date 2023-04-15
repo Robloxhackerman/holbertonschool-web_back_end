@@ -10,7 +10,6 @@ import redis
 
 
 def count_calls(method: Callable) -> Callable:
-    """ Count calls decorator method """
     key = method.__qualname__
 
     @wraps(method)
@@ -31,6 +30,19 @@ def call_history(method: Callable) -> Callable:
         return data
 
     return history_dec
+
+def replay(obj: Union[Callable, str]) -> None:
+    cache = obj.__self__
+
+    call_count = str(cache.get(cache.store.__qualname__), 'UTF-8')
+    inputs = cache._redis.lrange(f"{cache.store.__qualname__}:inputs", 0, -1)
+    outputs = cache._redis.lrange(f"{cache.store.__qualname__}:outputs", 0, -1)
+
+    print(f'{obj.__qualname__} was called {call_count} times:')
+
+    for input, output in zip(inputs, outputs):
+        input, output = str(input, 'UTF-8'), str(output, 'UTF-8')
+        print(f'{obj.__qualname__}(*{input}) -> {output}')
 
 
 class Cache:
