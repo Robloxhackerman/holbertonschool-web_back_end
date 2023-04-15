@@ -101,6 +101,12 @@ class Cache:
 
     def get(self, key: str,
             fn: Optional[Callable] = None) -> Union[str, bytes, int, float]:
+        """
+
+        :param key:
+        :param fn:
+        :return:
+        """
         data = self._redis.get(key)
         if fn:
             return fn(data)
