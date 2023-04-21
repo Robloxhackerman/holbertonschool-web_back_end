@@ -60,6 +60,12 @@ class Server:
         return pagination[range[0]:range[1]]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
+        """
+
+        :param page:
+        :param page_size:
+        :return:
+        """
         total_pages = math.floor(len(self.dataset()) / page_size)
         return {'page_size': len(self.get_page(page, page_size)),
                 'page': page,
