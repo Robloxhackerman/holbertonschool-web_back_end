@@ -10,6 +10,20 @@ import math
 from typing import List, Tuple, Dict
 
 
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
+    """
+
+    :param page:
+    :param page_size:
+    :return:
+    """
+
+    finalSize: int = page * page_size
+    starttSize: int = finalSize - page_size
+
+    return starttSize, finalSize
+
+
 class Server:
     """Server class to paginate a database of popular baby names.
     """
@@ -45,27 +59,12 @@ class Server:
 
         return pagination[range[0]:range[1]]
 
-
-def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    """
-
-    :param page:
-    :param page_size:
-    :return:
-    """
-
-    finalSize: int = page * page_size
-    starttSize: int = finalSize - page_size
-
-    return starttSize, finalSize
-
-
-def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
-    total_pages = math.floor(len(self.dataset()) / page_size)
-    return {'page_size': len(self.get_page(page, page_size)),
-            'page': page,
-            'data': self.get_page(page, page_size),
-            'next_page': page + 1 if page + 1 < total_pages else None,
-            'prev_page': page - 1 if page > 1 else None,
-            'total_pages': total_pages
-            }
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
+        total_pages = math.floor(len(self.dataset()) / page_size)
+        return {'page_size': len(self.get_page(page, page_size)),
+                'page': page,
+                'data': self.get_page(page, page_size),
+                'next_page': page + 1 if page + 1 < total_pages else None,
+                'prev_page': page - 1 if page > 1 else None,
+                'total_pages': total_pages
+                }
