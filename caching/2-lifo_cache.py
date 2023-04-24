@@ -31,7 +31,7 @@ class LIFOCache(BaseCaching):
             if key not in self.keys:
                 self.keys.append(key)
             if len(self.keys) > BaseCaching.MAX_ITEMS:
-                adios = self.keys.pop(len(self.keys) - 1)
+                adios = self.keys.pop(-2)
                 del self.cache_data[adios]
                 print(f'DISCARD: {adios}')
 
