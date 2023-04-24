@@ -7,7 +7,7 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 class BasicCache(BaseCaching):
     """
-
+    inherits from BaseCaching
     """
 
     def put(self, key, item):
