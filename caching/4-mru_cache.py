@@ -26,7 +26,7 @@ class MRUCache(BaseCaching):
         :param item:
         :return:
         """
-        if key is not None or item is not None:
+        if key is not None and item is not None:
             self.cache_data[key] = item
             if key not in self.keys:
                 self.keys.append(key)
