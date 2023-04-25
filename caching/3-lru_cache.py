@@ -43,7 +43,7 @@ class LRUCache(BaseCaching):
         :param key:
         :return:
         """
-        if key is not None and key in self.keys:
+        if key is not None and key in self.cache_data:
+            self.keys.append(self.keys.pop(self.keys.index(key)))
             return self.cache_data[key]
-        else:
-            return None
+        return None
