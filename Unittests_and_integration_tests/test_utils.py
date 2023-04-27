@@ -43,14 +43,30 @@ class TestGetJson(TestCase):
 
 
 class TestMemoize(TestCase):
+    """
+    aaa
+    """
     def test_memoize(self):
+        """
+
+        :return:
+        """
         class TestClass:
+            """aaa"""
 
             def a_method(self):
+                """
+
+                :return:
+                """
                 return 42
 
             @memoize
             def a_property(self):
+                """
+
+                :return:
+                """
                 return self.a_method()
 
         with patch.object(TestClass, 'a_method') as patched:
