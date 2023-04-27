@@ -42,8 +42,8 @@ class TestGetJson(TestCase):
             mock_response.json.assert_called_once()
 
 
-class TestMemoize(unittest.TestCase):
-    def test_memoiz(self):
+class TestMemoize(TestCase):
+    def test_memoize(self):
         class TestClass:
 
             def a_method(self):
