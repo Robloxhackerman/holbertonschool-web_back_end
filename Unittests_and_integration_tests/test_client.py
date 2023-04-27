@@ -32,7 +32,10 @@ class TestGithubOrgClient(unittest.TestCase):
         mock.assert_called_once_with(f'https://api.github.com/orgs/{input}')
 
     def test_public_repos_url(self):
-        """ Test the public repo url """
+        """
+
+        :return:
+        """
         with patch('client.GithubOrgClient.org', new_callable=PropertyMock) as mock:
             payload = {"repos_url": "World"}
             mock.return_value = payload
