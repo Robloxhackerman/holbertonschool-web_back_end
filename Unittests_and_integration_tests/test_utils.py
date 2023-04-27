@@ -41,6 +41,7 @@ class TestGetJson(TestCase):
             self.assertEqual(real_response, test_payload)
             mock_response.json.assert_called_once()
 
+
 class TestMemoize(unittest.TestCase):
     def test_memoiz(self):
         class TestClass:
@@ -54,6 +55,7 @@ class TestMemoize(unittest.TestCase):
 
         with patch.object(TestClass, 'a_method', return_value=42) as patched:
             test_class = TestClass()
+            final_return = test_class.a_property
             final_return = test_class.a_property
 
             self.assertEqual(final_return, 42)
