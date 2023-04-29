@@ -37,7 +37,7 @@ class TestGithubOrgClient(unittest.TestCase):
         :return:
         """
         with patch('client.GithubOrgClient.org',
-                new_callable=PropertyMock) as mock:
+                   new_callable=PropertyMock) as mock:
             payload = {"repos_url": "World"}
             mock.return_value = payload
             test_class = GithubOrgClient('test')
@@ -55,7 +55,7 @@ class TestGithubOrgClient(unittest.TestCase):
         mock_json.return_value = json_payload
 
         with patch('client.GithubOrgClient._public_repos_url',
-                new_callable=PropertyMock) as mock_public:
+                   new_callable=PropertyMock) as mock_public:
             mock_public.return_value = "hello/world"
             test_class = GithubOrgClient('test')
             result = test_class.public_repos()
