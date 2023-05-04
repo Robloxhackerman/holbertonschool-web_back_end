@@ -1,8 +1,15 @@
+#!/usr/bin/env python3
+"""
+aaaaaa
+"""
 from flask import Flask, render_template
 from flask_babel import Babel
 
 
 class Config():
+    """
+    aaaa
+    """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
