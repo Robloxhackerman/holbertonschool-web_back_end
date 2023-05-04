@@ -33,7 +33,7 @@ def index():
     """
     :return:aaa
     """
-    return render_template('3-index.html', title=pepe('title_header'), header=pepe('title_header'))
+    return render_template('3-index.html', title=pepe('home_title'), header=pepe('home_header'))
 
 
 if __name__ == '__main__':
