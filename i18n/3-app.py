@@ -3,7 +3,7 @@
 aaaa
 """
 from flask import Flask, render_template, request
-from flask_babel import Babel, _
+from flask_babel import Babel, _ as pepe
 
 
 class Config():
@@ -33,7 +33,7 @@ def index():
     """
     :return:aaa
     """
-    return render_template('2-index.html', title=_('title_header'), header=_('title_header'))
+    return render_template('3-index.html', title=pepe('title_header'), header=pepe('title_header'))
 
 
 if __name__ == '__main__':
