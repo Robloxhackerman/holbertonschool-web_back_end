@@ -16,11 +16,11 @@ class Config(object):
 
 
 app = Flask(__name__)
-app.config.from_object('4-app.Config')
+app.config.from_object(Config)
 babel = Babel(app)
 
 
-
+@babel.localeselector
 def get_locale():
     if request.args.get('locale'):
         locale = request.args.get('locale')
