@@ -35,7 +35,9 @@ def root():
 
     :return:
     """
-    return render_template('/3-index.html', title=translation('home_title'), header=translation('home_header'))
+    return render_template('/3-index.html',
+                           title=translation('home_title'),
+                           header=translation('home_header'))
 
 
 if __name__ == '__main__':
