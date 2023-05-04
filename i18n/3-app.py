@@ -3,10 +3,10 @@
 aaaa
 """
 from flask import Flask, render_template, request
-from flask_babel import Babel, _ as pepe
+from flask_babel import Babel, _ as translation
 
 
-class Config():
+class Config(object):
     """
     aaaa
     """
@@ -23,18 +23,20 @@ babel = Babel(app)
 
 def get_locale():
     """
+
     :return:
     """
-    return request.accept_languages.best_match(['LANGUAGE'])
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
-def index():
+def root():
     """
-    :return:aaa
+
+    :return:
     """
-    return render_template('3-index.html', title=pepe('home_title'), header=pepe('home_header'))
+    return render_template('/3-index.html', title=translation('home_title'), header=translation('home_header'))
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='5000')
+    app.run(host='0.0.0.0', port=5000)
