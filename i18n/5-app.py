@@ -27,7 +27,7 @@ app.config.from_object(Config)
 babel = Babel(app)
 
 
-@babel.localeselector
+
 def get_locale():
     """
 
@@ -41,7 +41,7 @@ def get_locale():
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
-def root():
+def index():
     """
 
     :return:

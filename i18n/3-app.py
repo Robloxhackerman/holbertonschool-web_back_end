@@ -30,7 +30,7 @@ def get_locale():
 
 
 @app.route('/', methods=['GET'], strict_slashes=False)
-def root():
+def index():
     """
 
     :return:
