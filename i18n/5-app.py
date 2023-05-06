@@ -62,6 +62,10 @@ def get_user():
 
 @app.before_request
 def before_request():
+    """
+
+    :return:
+    """
     g.user = get_user()
 
 
