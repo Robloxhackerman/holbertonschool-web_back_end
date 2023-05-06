@@ -26,8 +26,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 babel = Babel(app)
 
-
-
+@babel.localeselector
 def get_locale():
     """
 
@@ -50,16 +49,21 @@ def index():
 
 
 def get_user():
-    if request.args.get('login_as'):
-        user = int(request.args.get('login_as'))
-        if user in users:
-            return users.get(user)
+    """
+
+    :return:
+    """
+    id = request.args.get('login_as')
+    if id and int(id) in users:
+        return users[int(id)]
     else:
         return None
+
 
 @app.before_request
 def before_request():
     g.user = get_user()
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
