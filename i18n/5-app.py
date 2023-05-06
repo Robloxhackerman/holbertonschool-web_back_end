@@ -46,7 +46,7 @@ def index():
 
     :return:
     """
-    return render_template('4-index.html')
+    return render_template('5-index.html')
 
 
 def get_user():
