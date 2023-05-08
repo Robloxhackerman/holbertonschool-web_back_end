@@ -79,3 +79,27 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
         database=getenv('PERSONAL_DATA_DB_NAME'))
 
     return connection_db
+
+
+def main():
+    """
+
+    :return:
+    """
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM users;")
+    field = [i[0] for i in cursor.description]
+
+    log = get_logger()
+
+    for x in cursor:
+        str_row = ''.join(f'{f}={str(r)}; ' for r, f in zip(x, field))
+        log.info(str_row.strip())
+
+    cursor.close()
+    db.close()
+
+
+if __name__ == '__main__':
+    main()
