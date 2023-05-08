@@ -20,17 +20,19 @@ msgstr ""
 
 #: templates/3-index.html:4 templates/4-index.html:4 templates/5-index.html:5
 msgid "home_title"
-msgstr ""
+msgstr "Bienvenue chez Holberton"
 
 #: templates/3-index.html:7 templates/4-index.html:7 templates/5-index.html:9
 msgid "home_header"
-msgstr ""
+msgstr "Bonjour monde!"
 
 #: templates/5-index.html:11
 msgid "logged_in_as"
-msgstr ""
+msgstr "Vous êtes connecté en tant que %(username)s."
+
 
 #: templates/5-index.html:13
 msgid "not_logged_in"
-msgstr ""
+msgstr "Vous n'êtes pas connecté."
+
 
