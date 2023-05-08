@@ -3,8 +3,11 @@
 aaaaaa
 """
 import re
+from os import getenv
 from typing import List
 import logging
+
+import mysql
 
 PII_FIELDS = ('name', 'email', 'ssn', 'password', 'phone')
 
@@ -62,3 +65,16 @@ def get_logger() -> logging.Logger:
     logger.addHandler(stremManoteador)
 
     return logger
+
+def get_db() -> mysql.connector.connection.MySQLConnection:
+    """
+
+    :return:
+    """
+    connection_db = mysql.connector.connection.MySQLConnection(
+        user=getenv('PERSONAL_DATA_DB_USERNAME', 'root'),
+        password=getenv('PERSONAL_DATA_DB_PASSWORD', ''),
+        host=getenv('PERSONAL_DATA_DB_HOST', 'localhost'),
+        database=getenv('PERSONAL_DATA_DB_NAME'))
+
+    return connection_db
