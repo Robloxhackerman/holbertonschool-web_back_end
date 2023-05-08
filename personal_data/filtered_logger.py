@@ -53,5 +53,8 @@ def get_logger() -> logging.Logger:
 
     :return:
     """
-    logging.basicConfig(level=logging.INFO)
-    return logging.getLogger('user_data')
+    logger = logging.getLogger('user_data')
+    logger.setLevel(logging.INFO)
+    logger.propagate = False
+
+    return logger
