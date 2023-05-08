@@ -8,6 +8,8 @@ import logging
 
 PII_FIELDS = ('name', 'email', 'ssn', 'password', 'phone')
 
+logging.basicConfig(level=logging.INFO, )
+
 
 def filter_datum(fields: List[str], redaction: str,
                  message: str, separator: str) -> str:
