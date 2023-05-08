@@ -57,4 +57,8 @@ def get_logger() -> logging.Logger:
     logger.setLevel(logging.INFO)
     logger.propagate = False
 
+    stremManoteador = logging.StreamHandler()
+    stremManoteador.setFormatter(RedactingFormatter(PII_FIELDS))
+    logger.addHandler(stremManoteador)
+
     return logger
