@@ -7,7 +7,7 @@ from os import getenv
 from typing import List
 import logging
 
-import mysql
+import mysql.connector
 
 PII_FIELDS = ('name', 'email', 'ssn', 'password', 'phone')
 
@@ -65,6 +65,7 @@ def get_logger() -> logging.Logger:
     logger.addHandler(stremManoteador)
 
     return logger
+
 
 def get_db() -> mysql.connector.connection.MySQLConnection:
     """
