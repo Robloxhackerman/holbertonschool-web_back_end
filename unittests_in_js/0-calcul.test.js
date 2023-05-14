@@ -17,8 +17,8 @@ describe('testCaclculator', () =>{
     assert.equal(PEPE, 5)
   });
 
-  it('1.5, 3.7', () => {
-    const PEPE = calculateNumber(1.5, 3.7);
-    assert.equal(PEPE, 6)
+  it('1.5, 3.1', () => {
+    const PEPE = calculateNumber(1.5, 3.1);
+    assert.equal(PEPE, 5)
   });
 });
