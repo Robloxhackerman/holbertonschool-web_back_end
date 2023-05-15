@@ -2,8 +2,8 @@ var chai = require('chai');
 const calculateNumber = require('./1-calcul');
 
 describe('testCalculatorOmega', () => {
-  describe('SUM no Round', () => {
-    it('should return 5', () => {
+  describe('SUM no Round', function () {
+    it('should return 5', function () {
       chai.expect(calculateNumber('SUM', 1, 4)).to.equal(5);
     });
   });
