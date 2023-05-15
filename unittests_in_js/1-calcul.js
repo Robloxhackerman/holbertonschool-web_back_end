@@ -5,7 +5,7 @@ function calculateNumber(type, a, b) {
     case 'SUBTRACT':
       return Math.round(a) - Math.round(b);
     case 'DIVIDE':
-      if (b === 0){
+      if (Math.round(b) === 0){
         return 'Error';
       }
       return Math.round(a) / Math.round(b);
