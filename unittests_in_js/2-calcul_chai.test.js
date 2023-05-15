@@ -7,7 +7,10 @@ describe('testCalculatorOmega', () => {
       chai.expect(calculateNumber('SUM', 1.4, 4.5)).to.equal(6);
     });
     it('SUM, 1.4, 4.5', () => {
-      chai.expect(calculateNumber('SUM', 5, 4.5)).to.equal(10);
+      chai.expect(calculateNumber('SUM', 1, 4)).to.equal(5);
+    });
+    it('SUM, 4, 2.4', () => {
+      chai.expect(calculateNumber('SUM', 4, 2.4)).to.equal(6);
     });
   });
 
