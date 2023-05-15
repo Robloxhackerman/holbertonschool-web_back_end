@@ -1,5 +1,5 @@
 var chai = require('chai');
-const calculateNumber = require('./1-calcul');
+const calculateNumber = require('./2-calcul_chai');
 
 describe('calculateNumber', function () {
   describe('SUM no Round', function () {
