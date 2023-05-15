@@ -6,7 +6,7 @@ function calculateNumber(type, a, b) {
       return Math.round(a) - Math.round(b);
     case 'DIVIDE':
       if (b === 0){
-        return 'Error';
+        return 'error';
       }
       return Math.round(a) / Math.round(b);
   }

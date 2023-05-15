@@ -16,6 +16,6 @@ describe('testCalculatorOmega', () => {
   });
   it('DIVIDE, 1.4, 0', () => {
     const PEPE = calculateNumber('DIVIDE', 1.4, 0);
-    assert.equal(PEPE, 'Error');
+    assert.equal(PEPE, 'error');
   });
 });
