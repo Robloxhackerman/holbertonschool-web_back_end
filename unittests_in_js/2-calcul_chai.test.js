@@ -2,10 +2,13 @@ const expect = require('chai').expect;
 const calculateNumber = require('./1-calcul');
 
 describe('testCalculatorOmega', () => {
-  it('SUM, 1.4, 4.5', () => {
-    const PEPE = calculateNumber('SUM', 1.4, 4.5);
-    expect(PEPE).to.equal(6);
-  });
+  describe('aaa', () => {
+    it('SUM, 1.4, 4.5', () => {
+      const PEPE = calculateNumber('SUM', 1.4, 4.5);
+      expect(PEPE).to.equal(6);
+    });
+  })
+
   it('DIVIDE, 1.4, 4.5', () => {
     const PEPE = calculateNumber('DIVIDE', 1.4, 4.5);
     expect(PEPE).to.equal(0.2);
