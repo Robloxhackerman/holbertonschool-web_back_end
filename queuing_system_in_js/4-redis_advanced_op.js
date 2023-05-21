@@ -1,4 +1,4 @@
-import {createClient} from "redis";
+import {createClient, print} from "redis";
 
 const client = createClient();
 
@@ -21,6 +21,7 @@ const values = {
 
 for (const [key, val] of Object.entries(values)) {
   client.hset('HolbertonSchools', key, val, (error, reply) =>
-      redis.print(('Reply:' + reply))
+      print(('Reply:' + reply))
   );
 }
+client.hgetall('HolbertonSchools', (error, object) => console.log(object));
