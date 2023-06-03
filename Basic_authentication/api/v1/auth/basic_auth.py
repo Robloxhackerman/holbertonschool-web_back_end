@@ -11,7 +11,7 @@ class BasicAuth(Auth):
     aaaaaa
     """
 
-    def extract_base64_authorization_header(self, authorization_header: str) \
+    def extract_base64_authorization_header(self, authorization_header: str)\
             -> str:
         """
 
@@ -25,3 +25,5 @@ class BasicAuth(Auth):
             return None
         if "Basic " not in authorization_header:
             return None
+
+        return authorization_header.split("Basic ", 1)[1]
