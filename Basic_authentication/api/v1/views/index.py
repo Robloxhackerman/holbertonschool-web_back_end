@@ -33,3 +33,12 @@ def error_401() -> None:
     :return:
     """
     abort(401)
+
+
+@app_views.route('/forbidden', strict_slashes=False)
+def error_403() -> None:
+    """
+
+    :return:
+    """
+    abort(403)
