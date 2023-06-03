@@ -33,7 +33,10 @@ class Auth:
         :param request:
         :return:
         """
-        return None
+        if request is None or 'Authorization' not in request.header:
+            return None
+        else:
+            return request.headers.get('Authorization')
 
     def current_user(self, request=None) -> TypeVar('User'):
         """
