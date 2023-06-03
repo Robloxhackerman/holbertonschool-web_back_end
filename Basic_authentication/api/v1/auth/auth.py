@@ -33,7 +33,7 @@ class Auth:
         :param request:
         :return:
         """
-        if request is None or 'Authorization' not in request.header:
+        if request is None or "Authorization" not in request.headers:
             return None
         else:
             return request.headers.get('Authorization')
