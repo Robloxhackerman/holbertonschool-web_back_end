@@ -69,8 +69,12 @@ class BasicAuth(Auth):
 
     def user_object_from_credentials(
             self, user_email: str, user_pwd: str) -> TypeVar('User'):
-        """ Returns User instance based on email and pswd """
+        """
 
+        :param user_email:
+        :param user_pwd:
+        :return:
+        """
         if user_email is None or user_pwd is None:
             return None
         if not isinstance(user_email, str) or not isinstance(user_pwd, str):
@@ -86,3 +90,16 @@ class BasicAuth(Auth):
                 return user
             else:
                 return None
+
+    def current_user(self, request=None) -> TypeVar('User'):
+        """
+
+        :param request:
+        :return:
+        """
+        auth_header = self.authorization_header(request)
+
+        header_value = self.extract_base64_authorization_header(auth_header)
+        decoded_value = self.decode_base64_authorization_header(header_value)
+        user_data = self.extract_user_credentials(decoded_value)
+        return self.user_object_from_credentials(user_data[0], user_data[1])
