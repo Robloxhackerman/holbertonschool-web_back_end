@@ -2,6 +2,7 @@
 """
 aaaa
 """
+from os import getenv
 from typing import TypeVar, List
 
 
@@ -45,3 +46,10 @@ class Auth:
         :return:
         """
         return None
+
+    def session_cookie(self, request=None):
+        """ Returns cookie value from a request """
+        if request is None:
+            return None
+
+        return request.cookies.get(getenv('SESSION_NAME'))
